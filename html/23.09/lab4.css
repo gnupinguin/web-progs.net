@@ -1,0 +1,15 @@
+table{
+	border: 3px solid grey;
+}
+td{
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
+
+.odd{
+	background-color: #00BFFF;
+}
+.even{
+	background-color: grey;
+}
