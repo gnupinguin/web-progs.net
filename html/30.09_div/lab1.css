@@ -1,0 +1,20 @@
+
+.d1_1, .d1_2, .d1_3, .d2_1, .d2_2, .d2_3, .d3_1, .d3_2, .d3_3{
+	border: solid blue 2px;
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 4px;
+	margin-top: 4px;
+	text-align: center;
+}
+.d1_1, .d2_1, .d3_1{
+	clear: left;
+}
+
+
+
+
+
+
+
