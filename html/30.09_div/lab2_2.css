@@ -1,16 +1,10 @@
 .d1{
 	background-color: #00BFFF;
-	border: solid red 2px;
-	
+	border: solid red 0px;
+
 }
 .d2{
-	width: 110px;
-	height: 110px;
-	border-width: 2px;
-	border-style: solid;
-	border-color: red;
-	border-right-color: white;
-}
-p{
+	background-color: white;
 	float: right;
-}
+	border-right-color: white;
+
