@@ -1,0 +1,32 @@
+.first_div{
+	width: 700px;
+	height: 600px;
+	margin: 0px auto;
+
+	border: solid red 2px;
+}
+.second_div{
+	width: 500px;
+	height: 500px;
+	margin: 50px auto;
+
+	border: solid red 2px;
+	border-top-left-radius: 80px;
+	background-image: url("gnu.png"), url("bsd.png");
+	background-position: top left, center;
+	background-repeat: no-repeat;
+
+	box-shadow:10px 15px 16px 0px red;
+
+}
+.top_left_img{
+	height: 50px;
+	width: 50px;
+
+}
+.train{
+	border: solid green 2px;
+	border-top-left-radius: 80px;
+	text-align: center;
+	background: linear-gradient(to bottom right, #00B8D9, red)
+}
