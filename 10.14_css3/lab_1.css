@@ -1,0 +1,17 @@
+
+/*.norm{
+	float: left;
+}*/
+/*.echar{
+	float: left;
+	margin-top: 10px;
+}*/
+div{
+	float: left;
+}
+.echar{
+	margin-top: 3px;
+}
+.achar{
+	position: absolute; left:6%; bottom: 10px;
+}
