@@ -7,37 +7,43 @@
 </head>
 <body>
 <script type="text/javascript" src="calculator.js"></script>
-<table border="red">
+
+<table>
+	<caption align="center">The Gothic Calculator</caption>
 	<tr>
-		<td colspan="6"><input type="text" id="terminal" value="0" readonly="readonly"></td>
+		<td colspan="6" class="terminalCell"><input type="text" id="terminal" value="0" readonly="readonly"></td>
+	</tr>
+
+	<tbody id="button">
+	<tr>
+		<td class="number">1</td> 
+		<td class="number">2</td> 
+		<td class="number">3</td> 
+		<td class="function binary" id="division">/</td> 
+		<td colspan="2" class="function" id="clear">C</td>
 	</tr>
 	<tr>
-		<td class="button number">1</td> 
-		<td class="button number">2</td> 
-		<td class="button number">3</td> 
-		<td class="button function binary" id="division">/</td> 
-		<td colspan="2" class="button function" id="clear">C</td>
+		<td class="number">4</td> 
+		<td class="number">5</td> 
+		<td class="number">6</td> 
+		<td class="function binary" id="dot">*</td> 
+		<td colspan="2" class="function unary" id="invert"> +/-</td>
 	</tr>
 	<tr>
-		<td class="button number">4</td> 
-		<td class="button number">5</td> 
-		<td class="button number">6</td> 
-		<td class="button function binary" id="dot">*</td> 
-		<td colspan="2" class="button function unary" id="invert"> +/-</td>
+		<td class="number">7</td> 
+		<td class="number">8</td> 
+		<td class="number">9</td> 
+		<td class="function binary" id="substruct">-</td> 
+		<td colspan="2" class="function unary" id="sqrt">Sqrt</td>
 	</tr>
 	<tr>
-		<td class="button number">7</td> 
-		<td class="button number">8</td> 
-		<td class="button number">9</td> 
-		<td class="button function binary" id="substruct">-</td> 
-		<td colspan="2" class="button function unary" id="sqrt">Sqrt</td>
+		<td colspan="2" class="number">0</td> 
+		<td class="number">.</td> 
+		<td class="function binary" id="sum">+</td> 
+		<td colspan="2" class="function" id="result">=</td>
 	</tr>
-	<tr>
-		<td colspan="2" class="button number">0</td> 
-		<td class="button number">.</td> 
-		<td class="button function binary" id="sum">+</td> 
-		<td colspan="2" class="button function" id="result">=</td>
-	</tr>
+	</tbody>
 </table>
+<div>If you decide to use this calculator, then the world will be something terrible...</div>
 </body>
 </html>

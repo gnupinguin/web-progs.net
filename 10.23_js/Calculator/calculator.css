@@ -1,19 +1,23 @@
 table{
-	border: 8px solid red; 
+	border: 20px solid black; 
 	margin-left: auto;
 	margin-right:auto;
 	text-align: center;
-	border-spacing: 5px;
+	border-spacing: 0px;
 
 }
 td{
 	height:100px;
 	width: 100px;
-	background-color: #00BFFF;
+	background-color: black;
 	border: 20px solid; 
 	border-color: #E0E0E0 grey grey #E0E0E0;
-
+	color: white;
 }
+.terminalCell{
+	border-color: grey grey grey grey;
+}
+
 input{
 	text-align: right;
 	height: 100%;
@@ -22,4 +26,12 @@ input{
 }
 body{
 	font-size: 2.5em;
+}
+
+div{
+	margin-left: 30.5%;
+	margin-right:30.5%;
+	text-align: center;
+	background-color: #E0E0E0;
+	
 }

@@ -6,14 +6,14 @@ window.onload = function(){
 
 
 
-	var allButtons = document.getElementsByClassName('button');
+	var allButtons = document.getElementById('button').getElementsByTagName('td');
 	for (var i = allButtons.length - 1; i >= 0; i--) {
 		allButtons[i].onmouseover = function(event){
 			event.currentTarget.style.backgroundColor="red";
 		}
 
 		allButtons[i].onmouseout = function(event){
-			event.currentTarget.style.backgroundColor='#00BFFF';
+			event.currentTarget.style.backgroundColor='black';
 		}
 
 		allButtons[i].onmousedown = function(event){
