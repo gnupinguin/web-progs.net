@@ -1,0 +1,25 @@
+table{
+	border: 8px solid red; 
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+	border-spacing: 5px;
+
+}
+td{
+	height:100px;
+	width: 100px;
+	background-color: #00BFFF;
+	border: 20px solid; 
+	border-color: #E0E0E0 grey grey #E0E0E0;
+
+}
+input{
+	text-align: right;
+	height: 100%;
+	width: 97.5%;
+	font-size: 1.5em;
+}
+body{
+	font-size: 2.5em;
+}

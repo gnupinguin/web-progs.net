@@ -9,34 +9,34 @@
 <script type="text/javascript" src="calculator.js"></script>
 <table border="red">
 	<tr>
-		<td colspan="6"><input type="text" id="terminal" value="0"></td>
+		<td colspan="6"><input type="text" id="terminal" value="0" readonly="readonly"></td>
 	</tr>
 	<tr>
-		<td> <div class="number">1</div> </td> 
-		<td> <div class="number">2</div> </td> 
-		<td> <div class="number">3</div> </td> 
-		<td> <div class="function binary" id="division">/</div> </td> 
-		<td colspan="2"> <div class="function" id="clear">C</div> </td>
+		<td class="button number">1</td> 
+		<td class="button number">2</td> 
+		<td class="button number">3</td> 
+		<td class="button function binary" id="division">/</td> 
+		<td colspan="2" class="button function" id="clear">C</td>
 	</tr>
 	<tr>
-		<td> <div class="number">4</div> </td> 
-		<td> <div class="number">5</div> </td> 
-		<td> <div class="number">6</div> </td> 
-		<td> <div class="function binary" id="dot">*</div> </td> 
-		<td colspan="2"> <div class="function unary" id="invert"> +/- </div> </td>
+		<td class="button number">4</td> 
+		<td class="button number">5</td> 
+		<td class="button number">6</td> 
+		<td class="button function binary" id="dot">*</td> 
+		<td colspan="2" class="button function unary" id="invert"> +/-</td>
 	</tr>
 	<tr>
-		<td> <div class="number">7</div> </td> 
-		<td> <div class="number">8</div> </td> 
-		<td> <div class="number">9</div> </td> 
-		<td> <div class="function binary" id="substruct">-</div> </td> 
-		<td colspan="2"><div class="function unary" id="sqrt">Sqrt</div> </td>
+		<td class="button number">7</td> 
+		<td class="button number">8</td> 
+		<td class="button number">9</td> 
+		<td class="button function binary" id="substruct">-</td> 
+		<td colspan="2" class="button function unary" id="sqrt">Sqrt</td>
 	</tr>
 	<tr>
-		<td colspan="2"> <div class="number">0</div> </td> 
-		<td> <div class="number">.</div> </td> 
-		<td> <div class="function binary" id="sum">+</div> </td> 
-		<td colspan="2"> <div class="function" id="result">=</div> </td>
+		<td colspan="2" class="button number">0</td> 
+		<td class="button number">.</td> 
+		<td class="button function binary" id="sum">+</td> 
+		<td colspan="2" class="button function" id="result">=</td>
 	</tr>
 </table>
 </body>

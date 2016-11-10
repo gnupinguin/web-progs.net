@@ -4,10 +4,32 @@ window.onload = function(){
 	arg1 = arg2 = operation = null;
 	var countDot = 0;
 
-	var buttonNumberTags = document.getElementsByClassName('number');
-	
-	for (var i = buttonNumberTags.length - 1; i >= 0; i--) {
-		buttonNumberTags[i].onclick = function(event){
+
+
+	var allButtons = document.getElementsByClassName('button');
+	for (var i = allButtons.length - 1; i >= 0; i--) {
+		allButtons[i].onmouseover = function(event){
+			event.currentTarget.style.backgroundColor="red";
+		}
+
+		allButtons[i].onmouseout = function(event){
+			event.currentTarget.style.backgroundColor='#00BFFF';
+		}
+
+		allButtons[i].onmousedown = function(event){
+			event.currentTarget.style.borderColor = 'grey #E0E0E0 #E0E0E0 grey';
+		}
+
+		allButtons[i].onmouseup = function(event){
+			event.currentTarget.style.borderColor = '#E0E0E0 grey grey #E0E0E0';
+		}
+	}
+
+
+
+	var buttonNumbers = document.getElementsByClassName('number');
+	for (var i = buttonNumbers.length - 1; i >= 0; i--) {
+		buttonNumbers[i].onclick = function(event){
 
 			//if previous operation is =
 			if (arg1 === null){
