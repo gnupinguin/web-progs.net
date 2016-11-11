@@ -67,11 +67,17 @@ window.onload = function(){
 		terminal.value = "0";
 		arg1 = arg2 = null;
 		countDot = 0;
+		operation = null;
 	};
 
 	var buttonBinaryFunctions = document.getElementsByClassName("binary");
 	for (var i = buttonBinaryFunctions.length - 1; i >= 0; i--) {
 		buttonBinaryFunctions[i].onclick = function(event){
+			if (operation != null){
+				document.getElementById("result").onclick();
+				operation = event.currentTarget.textContent;
+				return;
+			}
 			arg1 = parseFloat(terminal.value);
 			terminal.value = "0";
 			countDot = 0;
@@ -80,6 +86,7 @@ window.onload = function(){
 	};
 
 	document.getElementById("result").onclick = function(){
+		//.alert('Hello,World!');
 		arg2 = parseFloat(terminal.value);
 		switch (operation){
 			case '+': terminal.value = arg1 + arg2; break;
@@ -91,4 +98,21 @@ window.onload = function(){
 		countDot = 0;
 	};
 
+	var str = "BODY<br>";
+	getTags(document.getElementsByTagName('body')[0],  "&emsp;");
+	
+	document.getElementsByTagName('div')[0].innerHTML = str;
+
+	function getTags(rootTag, spaces){
+		var tags = rootTag.childNodes;
+		if (tags.length == 1){
+			return ;
+		}
+		for (var i = tags.length - 1; i >= 0; i--) {
+			if (tags[i].tagName == undefined ) continue;
+			str += spaces + tags[i].tagName + '<br>';
+		 	getTags(tags[i], spaces + "&emsp;");
+		}
+	}
+	
 };

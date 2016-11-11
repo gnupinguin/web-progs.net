@@ -7,10 +7,10 @@ table{
 
 }
 td{
-	height:100px;
-	width: 100px;
+	height:80px;
+	width: 80px;
 	background-color: black;
-	border: 20px solid; 
+	border: 10px solid; 
 	border-color: #E0E0E0 grey grey #E0E0E0;
 	color: white;
 }
@@ -21,7 +21,7 @@ td{
 input{
 	text-align: right;
 	height: 100%;
-	width: 97.5%;
+	width: 100%;
 	font-size: 1.5em;
 }
 body{
@@ -29,8 +29,8 @@ body{
 }
 
 div{
-	margin-left: 30.5%;
-	margin-right:30.5%;
+	margin-left: 29%;
+	margin-right:29%;
 	text-align: center;
 	background-color: #E0E0E0;
 	
