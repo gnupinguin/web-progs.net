@@ -2,7 +2,7 @@ window.onload = function(){
 	var terminal = document.getElementById('terminal');
 	var arg1, arg2, operation;
 	arg1 = arg2 = operation = null;
-	var countDot = 0;
+	//var countDot = 0;
 
 
 
@@ -23,28 +23,22 @@ window.onload = function(){
 		allButtons[i].onmouseup = function(event){
 			event.currentTarget.style.borderColor = '#E0E0E0 grey grey #E0E0E0';
 		}
-	}
+	};
 
 
 
 	var buttonNumbers = document.getElementsByClassName('number');
 	for (var i = buttonNumbers.length - 1; i >= 0; i--) {
 		buttonNumbers[i].onclick = function(event){
+			var num = event.currentTarget.textContent;
 
-			//if previous operation is =
-			if (arg1 === null){
+			//if previous operation is '='
+			if (arg1 === null ){
 				terminal.value = "0";
 				arg1 = 0;
 			}
-
-			var num = event.currentTarget.textContent;
-
-			if (num == "."){
-				countDot++;
-			}
-
 			//if user input two or more dots
-			if(countDot > 1 && num == ".") return;
+			if(terminal.value.indexOf('.') != -1 && num == '.') return;
 
 			
 			terminal.value = (terminal.value != "0") ? terminal.value + num :
@@ -73,14 +67,13 @@ window.onload = function(){
 	var buttonBinaryFunctions = document.getElementsByClassName("binary");
 	for (var i = buttonBinaryFunctions.length - 1; i >= 0; i--) {
 		buttonBinaryFunctions[i].onclick = function(event){
+			//if user make two click on binary operation without click '='
 			if (operation != null){
 				document.getElementById("result").onclick();
 				operation = event.currentTarget.textContent;
-				return;
 			}
 			arg1 = parseFloat(terminal.value);
 			terminal.value = "0";
-			countDot = 0;
 			operation = event.currentTarget.textContent;
 		}
 	};
@@ -95,13 +88,12 @@ window.onload = function(){
 			case '/': terminal.value = arg1 / arg2; break;
 		}
 		arg1 = arg2 = operation =null;
-		countDot = 0;
 	};
 
-	var str = "BODY<br>";
+	var stringForDiv = "BODY<br>";
 	getTags(document.getElementsByTagName('body')[0],  "&emsp;");
 	
-	document.getElementsByTagName('div')[0].innerHTML = str;
+	document.getElementsByTagName('div')[0].innerHTML = stringForDiv;
 
 	function getTags(rootTag, spaces){
 		var tags = rootTag.childNodes;
@@ -110,7 +102,7 @@ window.onload = function(){
 		}
 		for (var i = tags.length - 1; i >= 0; i--) {
 			if (tags[i].tagName == undefined ) continue;
-			str += spaces + tags[i].tagName + '<br>';
+			stringForDiv += spaces + tags[i].tagName + '<br>';
 		 	getTags(tags[i], spaces + "&emsp;");
 		}
 	}
