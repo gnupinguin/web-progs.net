@@ -40,11 +40,11 @@ $(document).ready(function(){
 					var imageName = $(divArray[i]).css("background-image");
 					var divId = $(divArray[i]).attr('id').substr(1);//d1 -> 1, d3 -> 3, ...
 
-					if (imageName.match(new RegExp(`${divId}\.jpg`)) === null){//if № image != № div
+					if (imageName.indexOf(`${divId}\.jpg`) == -1){//if № image != № div
 						return;
 					}	
 				}
-				alert("Hello,World!");
+				alert("You win!");
 
 				
 			}
