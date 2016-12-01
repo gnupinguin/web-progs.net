@@ -14,12 +14,13 @@ namespace Logger
         {
             var container = new UnityContainer();
             container.RegisterType<ILog, ConsoleLog>();
-            var log1 = container.Resolve<ILog>();           
+            var log1 = container.Resolve<ILog>();
+            log1.writeAlert("Hello, World!");         
 
             container.RegisterType<ILog, FileLog>();
             var log2 = container.Resolve<ILog>();
 
-            getTree("C:\\Users\\iljap\\Documents\\Test", log2);
+            getTree("C:\\Users\\iljap\\Documents\\My Web Sites", log2);
 
             Console.ReadKey();
         }

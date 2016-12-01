@@ -1,0 +1,16 @@
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Logger.exe.config
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Logger.exe
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Logger.pdb
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\obj\Debug\Logger.exe
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\obj\Debug\Logger.pdb
+C:\Users\iljap\Documents\Projects\web-progs.net\11.25_c#_utest\Logger\Logger\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll

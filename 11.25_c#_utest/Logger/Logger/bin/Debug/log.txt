@@ -1,0 +1,6 @@
+Message: Dir: C:\Users\iljap\Documents\My Web Sites\WebSite1
+Message: File: C:\Users\iljap\Documents\My Web Sites\WebSite1\bkg-blu.jpg
+Message: File: C:\Users\iljap\Documents\My Web Sites\WebSite1\iis.png
+Message: File: C:\Users\iljap\Documents\My Web Sites\WebSite1\iisstart.htm
+Message: File: C:\Users\iljap\Documents\My Web Sites\WebSite1\msweb-brand.png
+Message: File: C:\Users\iljap\Documents\My Web Sites\WebSite1\w-brand.png
