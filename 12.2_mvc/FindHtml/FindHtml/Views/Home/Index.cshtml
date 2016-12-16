@@ -1,0 +1,30 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table  border="3">
+            <tr>
+                <td>File</td>
+                <td>Dir</td>
+                <td>date</td>
+            </tr>
+            @foreach (var f in ViewBag.files)
+            {
+                <tr>
+                    <td>@f[0]</td>
+                    <td>@f[1]</td>
+                    <td>@f[2]</td>
+                </tr>
+            }
+            
+        </table>
+    </div>
+</body>
+</html>
