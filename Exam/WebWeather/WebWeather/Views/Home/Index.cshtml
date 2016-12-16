@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+   
+}
+<script src="~/scripts/jquery-3.1.1.js"></script>
+<script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
+<script>
+    function OnComplete() {
+        $('td').each(function() {
+            if ($(this).html().trim() == '') {
+                $(this).remove();
+            }
+        })
+    }
+</script>
+
+<div class="jumbotron">
+    <h1>Hello, World!</h1>
+    @using (Ajax.BeginForm("CurrentWeather", new AjaxOptions
+    {
+        UpdateTargetId = "tableBody",
+        OnComplete = "OnComplete"
+    }))
+    {
+        @Html.DropDownList("Cities", ViewBag.Cities as SelectList)
+        <br />
+        
+        <input type="submit" name="CurrentWeather" formmethod="post" value="Get current!"/>
+        <input type="submit" name="Last5DaysWeather" formmethod="post" value="За последние 5 дней" />
+
+
+    }
+    <table border="3">
+        <thead>
+            <tr><th>Date</th><th>City</th><th>Location</th> <th>Temperature</th></tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+</div>
