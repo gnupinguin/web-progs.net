@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<WeatherDataInfo>
-    @foreach (var data in Model)
-    {
+
+        @foreach (var data in Model)
+        {
         <tr>
             <td>@data.Date<td>
             <td>@data.CityName<td>
             <td>@data.CityLocation<td>
             <td>@data.Temperature<td>
-
         </tr>
-    }
+        }
 

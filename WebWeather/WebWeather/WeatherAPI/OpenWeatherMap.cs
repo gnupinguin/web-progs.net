@@ -32,8 +32,8 @@ namespace WebWeather
                 string xmlData = client.DownloadString(url);
                 XDocument xdoc = XDocument.Parse(xmlData);
                 XElement xe = xdoc.Element("current").Element("temperature");
-
-                return double.Parse(xe.Attribute("value").Value);
+                double temperature = double.Parse(xe.Attribute("value").Value, System.Globalization.CultureInfo.InvariantCulture);
+                return Math.Round(temperature);
             }
         }
     }

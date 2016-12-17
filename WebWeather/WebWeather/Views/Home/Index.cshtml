@@ -1,41 +1,66 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 
-   
+
 }
 <script src="~/scripts/jquery-3.1.1.js"></script>
 <script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/MyStyle.css">
 <script>
-    function OnComplete() {
-        $('td').each(function() {
+    function OnBegin() {
+        $('table').css("visibility", "hidden");
+    }
+
+    function OnSuccess() {
+        $('td').each(function () {
             if ($(this).html().trim() == '') {
                 $(this).remove();
             }
         })
+        $('table').css("visibility", "visible");
     }
+
+    function OnFailure() {
+        alert("During operation, application errors occurred");
+    }
+
 </script>
 
+
 <div class="jumbotron">
-    <h1>Hello, World!</h1>
+    <h1>Check the weather!</h1>
     @using (Ajax.BeginForm("CurrentWeather", new AjaxOptions
     {
         UpdateTargetId = "tableBody",
-        OnComplete = "OnComplete"
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        LoadingElementId="loading",
     }))
     {
         @Html.DropDownList("Cities", ViewBag.Cities as SelectList)
-        <br />
-        
-        <input type="submit" name="CurrentWeather" formmethod="post" value="Get current!"/>
-        <input type="submit" name="Last5DaysWeather" formmethod="post" value="За последние 5 дней" />
 
-
+        <input class="btn" type="submit" name="CurrentWeather" formmethod="post" value="Get current" />
+        <input class="btn" type="submit" name="Last5DaysWeather" formmethod="post" value="Last 5 days" />
     }
-    <table border="3">
-        <thead>
-            <tr><th>Date</th><th>City</th><th>Location</th> <th>Temperature</th></tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
+        <div id="loading">
+            <!--<img  src="~/Content/clock.gif" />-->
+            <div id="fountainG">
+                <div id="fountainG_1" class="fountainG"></div>
+                <div id="fountainG_2" class="fountainG"></div>
+                <div id="fountainG_3" class="fountainG"></div>
+                <div id="fountainG_4" class="fountainG"></div>
+                <div id="fountainG_5" class="fountainG"></div>
+                <div id="fountainG_6" class="fountainG"></div>
+                <div id="fountainG_7" class="fountainG"></div>
+                <div id="fountainG_8" class="fountainG"></div>
+            </div>
+        </div>
+    <div class="tableDiv">
+        <table>
+            <thead>
+                <tr><th>Date</th><th>City</th><th>Location</th> <th>Temperature</th></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
 </div>

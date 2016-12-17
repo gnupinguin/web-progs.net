@@ -17,13 +17,13 @@ namespace WebWeather.Models
                        Date = DateTime.Now,
                        Temperature = new OpenWeatherMap().getCurrentTemperatureByName("St. Petersburg", "ru")
                    });
-            db.Cities.Add(new City { Name = "Kazan", Location = "ru" });
+            db.Cities.Add(new City { Name = "Ufa", Location = "ru" });
             db.WeatherData.Add(
                    new WeatherData
                    {
                        CityId = 2,
                        Date = DateTime.Now,
-                       Temperature = new OpenWeatherMap().getCurrentTemperatureByName("Kazan", "ru")
+                       Temperature = new OpenWeatherMap().getCurrentTemperatureByName("Ufa", "ru")
                    });
 
             db.Cities.Add(new City { Name = "Minsk", Location = "by" });
@@ -33,6 +33,14 @@ namespace WebWeather.Models
                        CityId = 3,
                        Date = DateTime.Now,
                        Temperature = new OpenWeatherMap().getCurrentTemperatureByName("Minsk", "by")
+                   });
+            db.Cities.Add(new City { Name = "Navahrudak", Location = "by" });
+            db.WeatherData.Add(
+                   new WeatherData
+                   {
+                       CityId = 4,
+                       Date = DateTime.Now,
+                       Temperature = new OpenWeatherMap().getCurrentTemperatureByName("Navahrudak", "by")
                    });
 
             base.Seed(db);
