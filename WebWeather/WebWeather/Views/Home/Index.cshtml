@@ -6,44 +6,16 @@
 <script src="~/scripts/jquery-3.1.1.js"></script>
 <script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/MyStyle.css">
-<script>
-    function OnBegin() {
-        $('table').css("visibility", "hidden");
-    }
 
-    function OnSuccess() {
-        $('td').each(function () {
-            if ($(this).html().trim() == '') {
-                $(this).remove();
-            }
-        })
-        $('table').css("visibility", "visible");
-    }
-
-    function OnFailure() {
-        alert("During operation, application errors occurred");
-    }
-
-</script>
 
 
 <div class="jumbotron">
     <h1>Check the weather!</h1>
-    @using (Ajax.BeginForm("CurrentWeather", new AjaxOptions
-    {
-        UpdateTargetId = "tableBody",
-        OnBegin = "OnBegin",
-        OnSuccess = "OnSuccess",
-        LoadingElementId="loading",
-    }))
-    {
+    <form method="POST" id="dataForm">
         @Html.DropDownList("Cities", ViewBag.Cities as SelectList)
-
-        <input class="btn" type="submit" name="CurrentWeather" formmethod="post" value="Get current" />
-        <input class="btn" type="submit" name="Last5DaysWeather" formmethod="post" value="Last 5 days" />
-    }
+        <input class="btn" type="submit" id="currentWeather" formmethod="post" value="Get current" />
+        <input class="btn" type="submit" id="last5DaysWeather" formmethod="post" value="Last 5 days" />
         <div id="loading">
-            <!--<img  src="~/Content/clock.gif" />-->
             <div id="fountainG">
                 <div id="fountainG_1" class="fountainG"></div>
                 <div id="fountainG_2" class="fountainG"></div>
@@ -55,12 +27,76 @@
                 <div id="fountainG_8" class="fountainG"></div>
             </div>
         </div>
-    <div class="tableDiv">
-        <table>
-            <thead>
-                <tr><th>Date</th><th>City</th><th>Location</th> <th>Temperature</th></tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
-    </div>
+        <div id="tableDiv">
+            <table id="weatherDataTable">
+                <thead>
+                    <tr><th>Date</th><th>City</th><th>Location</th> <th>Temperature</th></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </form>
+    <script >
+
+        $(function () {
+
+
+            $("#last5DaysWeather").click(function (evt) {
+                $("#dataForm").prop("action", "@Url.Action("Last5DaysWeather", "Home")");
+            });
+            $("#currentWeather").click(function (evt) {
+                $("#dataForm").prop("action", "@Url.Action("CurrentWeather", "Home")");
+            });
+
+
+            $("#dataForm ").submit(function (evt) {
+
+                $(document).ajaxStart(function () {
+                    $("#loading").show();
+                });
+
+                evt.preventDefault();
+                var form = $(this);
+
+                var cityId = $("#Cities").val();
+                var locationData = $(`#Cities option[value=${cityId}]`).attr("selected", "true").text().split(", ");
+                var cityName = locationData[0];
+                var cityLocation = locationData[1];
+
+                var $data = `"CityId":${cityId},"Name":${cityName},"Location":${cityLocation}`;
+                $data = encodeURIComponent($data);
+                $.ajax({
+                    type: form.prop('method'),
+                    url: form.prop('action'),
+                    data: { "CityId": cityId, "Name": cityName, "Location": cityLocation },
+                    traditional: true,
+
+                    success: function (html) {
+                        $("#tableBody").html(html);
+                        $('td').each(function () {
+                            if ($(this).html().trim() == '') {
+                                $(this).remove();
+                            }
+                        });
+                        $("#weatherDataTable").css("visibility", "visible");
+
+                    },
+                    error: function (err) {
+                        alert('oops, something bad happened');
+                    }
+                });
+                $(document).ajaxStop(function () {
+                    $("#loading").hide();
+                })
+            });
+        });
+
+        
+        /*$(document).ajaxStop(function () {
+            $("#tableDiv").css("visibility", "hidden");
+        });*/
+
+
+    </script>
+    
 </div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Net;
 
 namespace WebWeather.Controllers
 {
@@ -30,65 +31,62 @@ namespace WebWeather.Controllers
 
         }
         [HttpPost]
-        public PartialViewResult CurrentWeather(City c)
+        public ActionResult CurrentWeather(City city)
         {
-            var a = Request.Form["Cities"];
-            int id = int.Parse(a);
-
             WebWeather weatherSource = new OpenWeatherMap();
-
-
-            var isCurrentWeather = Request.Form["CurrentWeather"];
-
-            if (isCurrentWeather != null)
+            double temp = 0;
+            try
             {
-                var query = from city in db.Cities
-                            join wd in db.WeatherData on city.CityId equals wd.CityId
-                            where city.CityId == id
-                            select new
-                            {
-                                CityName = city.Name,
-                                CityLocation = city.Location,
-                            };
-                var location = query.AsEnumerable().Last();
-
-                double temp = weatherSource.getCurrentTemperatureByName(location.CityName, location.CityLocation);
-
-                db.WeatherData.Add(new WeatherData
-                {
-                    CityId = id,
-                    Date = DateTime.Now,
-                    Temperature = temp,
-                });
-                db.SaveChanges();
-
-                List<WeatherDataInfo> list = new List<WeatherDataInfo>();
-                list.Add(new WeatherDataInfo
-                {
-                    CityName = location.CityName,
-                    CityLocation = location.CityLocation,
-                    Temperature = temp,
-                    Date = DateTime.Now
-                });
-
-                db.SaveChanges();
-                return PartialView(list);
+                temp = weatherSource.getCurrentTemperatureByName(city.Name, city.Location);
             }
-            //for 5 days
+            catch (System.Net.WebException)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return null;
+            }
+
+
+
+            db.WeatherData.Add(new WeatherData
+            {
+                CityId = city.CityId,
+                Date = DateTime.Now,
+                Temperature = temp,
+            });
+            db.SaveChanges();
+
+            List<WeatherDataInfo> list = new List<WeatherDataInfo>();
+            list.Add(new WeatherDataInfo
+            {
+                CityName = city.Name,
+                CityLocation = city.Location,
+                Temperature = temp,
+                Date = DateTime.Now
+            });
+
+            db.SaveChanges();
+
+            return PartialView(list);
+
+        }
+
+        [HttpPost]
+        public ActionResult Last5DaysWeather(City city)
+        {
             DateTime currentDate = DateTime.Now;
             var selected = from wd in db.WeatherData
-                            join city in db.Cities on wd.CityId equals city.CityId
-                            where wd.CityId == id && DbFunctions.DiffDays(currentDate, wd.Date) <= 5
-                            orderby wd.Date
-                            select new WeatherDataInfo
-                            {
-                                CityName = city.Name,
-                                CityLocation = city.Location,
-                                Date = wd.Date,
-                                Temperature = wd.Temperature
-                            };
+                           join c in db.Cities on wd.CityId equals city.CityId
+                           where wd.CityId == city.CityId && DbFunctions.DiffDays(currentDate, wd.Date) <= 5
+                           orderby wd.Date
+                           select new WeatherDataInfo
+                           {
+                               CityName = city.Name,
+                               CityLocation = city.Location,
+                               Date = wd.Date,
+                               Temperature = wd.Temperature
+                           };
 
-            return PartialView(selected);
+            return PartialView("CurrentWeather", selected);
         }
     }
 }
