@@ -15,7 +15,7 @@ namespace WebWeather
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new WeatherDbInitializer());
+            Database.SetInitializer(new WeatherDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -28,8 +28,8 @@ namespace WebWeather.Controllers
 
 
             return View();
-
         }
+
         [HttpPost]
         public ActionResult CurrentWeather(City city)
         {
@@ -44,9 +44,6 @@ namespace WebWeather.Controllers
                 Response.StatusCode = (int)HttpStatusCode.NotFound;
                 return null;
             }
-
-
-
             db.WeatherData.Add(new WeatherData
             {
                 CityId = city.CityId,
@@ -64,8 +61,6 @@ namespace WebWeather.Controllers
                 Date = DateTime.Now
             });
 
-            db.SaveChanges();
-
             return PartialView(list);
 
         }
@@ -75,7 +70,8 @@ namespace WebWeather.Controllers
         {
             DateTime currentDate = DateTime.Now;
             var selected = from wd in db.WeatherData
-                           join c in db.Cities on wd.CityId equals city.CityId
+                           join c in db.Cities
+                           on wd.CityId equals c.CityId
                            where wd.CityId == city.CityId && DbFunctions.DiffDays(currentDate, wd.Date) <= 5
                            orderby wd.Date
                            select new WeatherDataInfo

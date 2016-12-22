@@ -58,15 +58,25 @@ font-weight: bold;
     height:auto;
 }
 
-.tableDiv{
-    margin-top: auto;
+h1{
+    text-align:center;
 }
+
 
 #weatherDataTable{
     visibility: hidden;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
 }
 #loading{
     display: none;
+}
+#selectDiv{
+    margin-left: 40%;
+}
+#manageDiv{
+    margin-left: 38.5%;
 }
 
 
@@ -75,7 +85,7 @@ font-weight: bold;
 	position:relative;
 	width:234px;
 	height:28px;
-	margin-left: 10%;
+	margin-left: 37.3%;
 }
 
 .fountainG{
