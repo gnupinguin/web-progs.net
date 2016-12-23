@@ -1,0 +1,33 @@
+﻿@using Avito.Models
+@model IEnumerable<Record>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetRecords</title>
+</head>
+<body>
+    <div> @if (Model != null)
+    {
+        @foreach (var r in Model)
+        {
+            <p>
+                Name: @r.Name
+                Phone: @r.PhoneNumber
+                Address: @r.Address
+                Text: @r.Text
+                Card: @r.isCard
+            </p>
+        }
+        @Html.ActionLink("Index", "Index")
+    }
+    else
+    {
+        <p>Labels not exist =(</p>
+    }
+    
+    </div>
+</body>
+</html>

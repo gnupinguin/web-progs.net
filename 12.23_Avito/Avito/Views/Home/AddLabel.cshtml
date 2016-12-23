@@ -1,0 +1,39 @@
+﻿@using System.Collections
+@using Avito.Models
+@{
+    Layout = null;
+    List<isCardType> l = new List<isCardType>();
+    l.Add(new isCardType { Value = true });
+    l.Add(new isCardType { Value = false });
+    SelectList list = new SelectList(l, "Value", "Text");
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddLabel</title>
+</head>
+<body>
+    <div>
+        @Html.ValidationSummary()
+        <form action="@Url.Action("AddRecord", "Home")">
+                
+                @Html.TextBox("Name", "Name")
+                @Html.TextBox("PhoneNumber", "Phone")
+                @Html.TextBox("Address", "Address")
+                @Html.TextArea("Text", "Text")
+                @Html.DropDownList("isCard", list)
+            
+
+            <input type="submit" value="Add" />
+        </form>
+
+        
+        
+    </div>
+</body>
+</html>
