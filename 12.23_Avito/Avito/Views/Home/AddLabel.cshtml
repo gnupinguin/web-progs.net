@@ -22,11 +22,11 @@
         @Html.ValidationSummary()
         <form action="@Url.Action("AddRecord", "Home")">
                 
-                @Html.TextBox("Name", "Name")
-                @Html.TextBox("PhoneNumber", "Phone")
-                @Html.TextBox("Address", "Address")
-                @Html.TextArea("Text", "Text")
-                @Html.DropDownList("isCard", list)
+               Name: @Html.TextBox("Name", "gnu") <br />
+                Phone: @Html.TextBox("PhoneNumber", "8123456789") <br />
+                Address: @Html.TextBox("Address", "USSR") <br />
+               Text: @Html.TextArea("Text", "Продам корову") <br />
+               Оплата картой: @Html.DropDownList("isCard", list) <br />
             
 
             <input type="submit" value="Add" />

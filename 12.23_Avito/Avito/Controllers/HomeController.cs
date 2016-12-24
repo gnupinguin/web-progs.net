@@ -37,7 +37,7 @@ namespace Avito.Controllers
         public ActionResult GetRecords()
         {
             db.Update();
-            return db.records.Count == 0 ? View("GetRecords",null) : View(db.records);
+            return View(db.records);
         }
     }
 }

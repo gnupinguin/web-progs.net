@@ -9,24 +9,18 @@
     <title>GetRecords</title>
 </head>
 <body>
-    <div> @if (Model != null)
-    {
+    <div> 
         @foreach (var r in Model)
         {
             <p>
-                Name: @r.Name
-                Phone: @r.PhoneNumber
-                Address: @r.Address
-                Text: @r.Text
-                Card: @r.isCard
+                Name: @r.Name <br />
+                Phone: @r.PhoneNumber <br />
+                Address: @r.Address <br />
+                Text: @r.Text <br />
+                Card: @r.isCard <br />
             </p>
         }
         @Html.ActionLink("Index", "Index")
-    }
-    else
-    {
-        <p>Labels not exist =(</p>
-    }
     
     </div>
 </body>
